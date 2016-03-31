@@ -1,16 +1,86 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <title> Christopher Chu </title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+      <meta charset="utf-8" />
+      <title> Christopher Chu </title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.4.3/ember.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.4.3/ember-template-compiler.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.4.3/ember.debug.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="style.css" />
+
+      <link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+      <script src="app.js"></script>
   </head>
   <body>
-    <div class="container">
-      <h1> Chris Chu </h1>
-      <p> Hello </p>
-    </div>
+    <script type="text/x-handlebars" data-template-name="application">
+      <div class="container" style="border:solid 1px red">
+        {{site-header}}
+        {{site-navbar}}
+        {{outlet}}
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="loading">
+      <div> Loading... </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="home">
+      <div class="container page">
+        {{page-header 'Welcome'}}
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="web-dev">
+      <div class="container page">
+        {{page-header 'Web Dev'}}
+
+        Web dev stuff
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="about">
+      <div class="container page">
+        {{page-header 'About'}}
+
+        All about chris
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="contact">
+      <div class="container page">
+        {{page-header 'Contact'}}
+
+        contact email
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="components/site-header">
+      <h1 class="text-center"> {{link-to 'Christopher Chu' 'home'}} </h1>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="components/site-navbar">
+      <nav>
+        <div class="row">
+          {{site-navbar-link 'home'}}
+          {{site-navbar-link 'web-dev'}}
+          {{site-navbar-link 'about'}}
+          {{site-navbar-link 'contact'}}
+        </div>
+      </nav>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="components/site-navbar-link">
+      {{link-to displayText name class=""}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="components/page-header">
+      <h2>{{pageName}}</h2>
+    </script>
   </body>
 </html>

@@ -1,0 +1,43 @@
+body {
+  background-color: #272727;
+}
+
+h1, h2 {
+  font-family: "Lato";
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 90px;
+  margin: 35px 0;
+}
+
+body, a, a:visited, a:hover {
+  color: white;
+}
+
+a {
+  display: block
+}
+
+a:hover, a:visited {
+  text-decoration: none;
+}
+
+.navbar-link {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-link:hover {
+  background-color: #2D8CBC;
+}
+
+.col-sm-3 {
+  border:1px solid red;
+}
+
+#footer, #push-footer {
+  height: 45px;
+}
