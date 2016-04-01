@@ -1,6 +1,14 @@
 $(function() {
   App = Ember.Application.create({});
 
+  var ANGULAR = 'AngularJS';
+  var JAVASCRIPT = 'JavaScript';
+  var MONGO = 'MongoDB';
+  var PHP = 'PHP';
+  var MYSQL = 'MySQL';
+  var NODE = 'NodeJS';
+
+
   App.Router.map(function(){
     this.route('home', {path: '/'});
     this.route('web-dev');
@@ -26,26 +34,34 @@ $(function() {
     positionalParams: ['name', 'colorClass']
   });
 
-  App.PageHeaderComponent = Ember.Component.extend({});
+  App.PageHeaderComponent = Ember.Component.extend({
+    tagName: 'h2'
+  });
   App.PageHeaderComponent.reopenClass({
     positionalParams: ['pageName']
   });
 
   App.PageGalleryComponent = Ember.Component.extend({
     tagName: 'div',
-    classNames: ['row'],
+    classNames: ['container'],
     galleryItems: [{
       title: 'Jake and Amir Scripts',
       description: 'The official searchable script archive of popular web series Jake and Amir',
       url: 'http://scripts.jakeandamir.com',
       imageUrl: '',
-      stack: ['JavaScript', 'PHP', 'MySQL']
+      stack: [JAVASCRIPT, PHP, MYSQL]
     }, {
       title: 'Nutraction',
       description: 'A school project for tracking nutritional information',
       url: 'http://lumpymunch-tunataco.rhcloud.com',
       imageUrl: '',
-      stack: ['AngularJS', 'MongoDB', 'NodeJS']
+      stack: [ANGULAR, MONGO, NODE]
+    }, {
+      title: 'Fake Terminal',
+      description: 'A fake terminal in the style of computer on LOST',
+      url: 'http://www.ccs.neu.edu/home/812chuc/chartreuse-emu/',
+      imageUrl: '',
+      stack: [JAVASCRIPT]
     }]
   });
   App.PageGalleryComponent.reopenClass({
@@ -61,7 +77,4 @@ $(function() {
   App.PageGalleryItemComponent.reopenClass({
     positionalParams: ['title', 'description', 'url', 'imageUrl', 'stack']
   });
-
-
-
 });

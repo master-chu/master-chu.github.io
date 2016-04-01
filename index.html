@@ -51,6 +51,10 @@
       {{link-to displayText name class=colorClass}}
     </script>
 
+    <script type="text/x-handlebars" data-template-name="components/page-header">
+      {{pageName}}
+    </script>
+
     <script type="text/x-handlebars" data-template-name="home">
       <div class="container page">
         {{page-header 'Welcome'}}
@@ -65,10 +69,12 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="components/page-gallery">
-      <h3> {{title}} </h3>
-      {{#each galleryItems as |item|}}
-        {{page-gallery-item item.title item.description item.url item.imageUrl item.stack}}
-      {{/each}}
+      <div class="row">
+        <h3> {{title}} </h3>
+        {{#each galleryItems as |item|}}
+          {{page-gallery-item item.title item.description item.url item.imageUrl item.stack}}
+        {{/each}}
+      </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="components/page-gallery-item">
@@ -78,6 +84,7 @@
       </div>
       <img src="{{imageUrl}}" />
       <div>
+        <label>Stack: </label>
         {{#each stack as |technology|}}
           {{technology}},
         {{/each}}
@@ -114,10 +121,6 @@
 
         contact email
       </div>
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="components/page-header">
-      <h2>{{pageName}}</h2>
     </script>
   </body>
 </html>

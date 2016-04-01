@@ -7,7 +7,7 @@
 .magenta { color: #D951E8 !important; }
 .black { color: #272727 !important; }
 .orange { color: #FF5900 !important; }
-.gray { color: #B3B3B3 !important; }
+.gray { color: #8A8A8A !important; }
 
 body {
   background-color: #272727;
@@ -44,17 +44,13 @@ a:hover, a:visited {
 }
 
 .navbar-link a:hover {
-  background-color: #B3B3B3;
+  background-color: #8A8A8A;
   color: white !important;
 }
 
 .navbar-link a {
   padding: 10px 0;
   margin: 0 -15px;
-}
-
-.col-sm-3 {
-  // border:1px solid red;
 }
 
 #footer, #push-footer {
