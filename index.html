@@ -19,7 +19,7 @@
   </head>
   <body>
     <script type="text/x-handlebars" data-template-name="application">
-      <div class="container" style="border:solid 1px red">
+      <div class="container" style="border:solid 1px red;">
         {{site-header}}
         {{site-navbar}}
         {{outlet}}
@@ -28,6 +28,27 @@
 
     <script type="text/x-handlebars" data-template-name="loading">
       <div> Loading... </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="components/site-header">
+      <h1 class="text-center"> {{link-to 'Christopher Chu' 'home'}} </h1>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="components/site-navbar">
+      <nav>
+        <div class="row">
+          {{site-navbar-link 'home' 'red'}}
+          {{site-navbar-link 'web-dev' 'green'}}
+          {{site-navbar-link 'music' 'blue'}}
+          {{site-navbar-link 'menu' 'cyan'}}
+          {{site-navbar-link 'about' 'yellow'}}
+          {{site-navbar-link 'contact' 'magenta'}}
+        </div>
+      </nav>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="components/site-navbar-link">
+      {{link-to displayText name class=colorClass}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="home">
@@ -39,8 +60,43 @@
     <script type="text/x-handlebars" data-template-name="web-dev">
       <div class="container page">
         {{page-header 'Web Dev'}}
+        {{page-gallery 'Portfolio'}}
+      </div>
+    </script>
 
-        Web dev stuff
+    <script type="text/x-handlebars" data-template-name="components/page-gallery">
+      <h3> {{title}} </h3>
+      {{#each galleryItems as |item|}}
+        {{page-gallery-item item.title item.description item.url item.imageUrl item.stack}}
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="components/page-gallery-item">
+      <h4> {{title}} </h4>
+      <div>
+        {{description}}
+      </div>
+      <img src="{{imageUrl}}" />
+      <div>
+        {{#each stack as |technology|}}
+          {{technology}},
+        {{/each}}
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="music">
+      <div class="container page">
+        {{page-header 'Music'}}
+
+        Music
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="menu">
+      <div class="container page">
+        {{page-header 'Menu'}}
+
+        menu
       </div>
     </script>
 
@@ -58,25 +114,6 @@
 
         contact email
       </div>
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="components/site-header">
-      <h1 class="text-center"> {{link-to 'Christopher Chu' 'home'}} </h1>
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="components/site-navbar">
-      <nav>
-        <div class="row">
-          {{site-navbar-link 'home'}}
-          {{site-navbar-link 'web-dev'}}
-          {{site-navbar-link 'about'}}
-          {{site-navbar-link 'contact'}}
-        </div>
-      </nav>
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="components/site-navbar-link">
-      {{link-to displayText name class=""}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="components/page-header">
