@@ -1,14 +1,6 @@
 $(function() {
   App = Ember.Application.create({});
 
-  var ANGULAR = 'AngularJS';
-  var JAVASCRIPT = 'JavaScript';
-  var MONGO = 'MongoDB';
-  var PHP = 'PHP';
-  var MYSQL = 'MySQL';
-  var NODE = 'NodeJS';
-
-
   App.Router.map(function(){
     this.route('home', {path: '/'});
     this.route('web-dev');
@@ -23,10 +15,13 @@ $(function() {
     tagName: 'div',
     classNames: ['navbar-link col-sm-2'],
     attributeBindings: ['id'],
-    id: Ember.computed('text', function() {
-      return `navbar-link-${this.get('name')}`;
+    safeName: Ember.computed('name', function() {
+      return this.get('name').replace(" ", "-");
     }),
-    displayText: Ember.computed('text', function() {
+    id: Ember.computed('safeName', function() {
+      return `navbar-link-${this.get('safeName')}`;
+    }),
+    displayName: Ember.computed('name', function() {
       return this.get('name').toUpperCase();
     })
   });
@@ -40,6 +35,13 @@ $(function() {
   App.PageHeaderComponent.reopenClass({
     positionalParams: ['pageName']
   });
+
+  var ANGULAR = 'AngularJS';
+  var JAVASCRIPT = 'JavaScript';
+  var MONGO = 'MongoDB';
+  var PHP = 'PHP';
+  var MYSQL = 'MySQL';
+  var NODE = 'NodeJS';
 
   App.PageGalleryComponent = Ember.Component.extend({
     tagName: 'div',

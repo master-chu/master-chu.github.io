@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
       <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title> Christopher Chu </title>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -38,7 +39,7 @@
       <nav>
         <div class="row">
           {{site-navbar-link 'home' 'red'}}
-          {{site-navbar-link 'web-dev' 'green'}}
+          {{site-navbar-link 'web dev' 'green'}}
           {{site-navbar-link 'music' 'blue'}}
           {{site-navbar-link 'menu' 'cyan'}}
           {{site-navbar-link 'about' 'yellow'}}
@@ -48,7 +49,7 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="components/site-navbar-link">
-      {{link-to displayText name class=colorClass}}
+      {{link-to displayName safeName class=colorClass}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="components/page-header">
