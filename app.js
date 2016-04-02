@@ -36,12 +36,14 @@ $(function() {
     positionalParams: ['pageName']
   });
 
-  var ANGULAR = 'AngularJS';
-  var JAVASCRIPT = 'JavaScript';
+  var ANGULAR = 'Angular';
+  var JQUERY = 'jQuery';
   var MONGO = 'MongoDB';
   var PHP = 'PHP';
   var MYSQL = 'MySQL';
-  var NODE = 'NodeJS';
+  var NODE = 'Node';
+  var EMBER = 'Ember';
+  var BACKBONE = 'Backbone';
 
   App.PageGalleryComponent = Ember.Component.extend({
     tagName: 'div',
@@ -50,20 +52,32 @@ $(function() {
       title: 'Jake and Amir Scripts',
       description: 'The official searchable script archive of popular web series Jake and Amir',
       url: 'http://scripts.jakeandamir.com',
-      imageUrl: '',
-      stack: [JAVASCRIPT, PHP, MYSQL]
+      imageUrl: 'images/janda.jpg',
+      stack: [JQUERY, PHP, MYSQL]
     }, {
       title: 'Nutraction',
       description: 'A school project for tracking nutritional information',
       url: 'http://lumpymunch-tunataco.rhcloud.com',
-      imageUrl: '',
+      imageUrl: 'images/lumpymunch.jpg',
       stack: [ANGULAR, MONGO, NODE]
     }, {
       title: 'Fake Terminal',
-      description: 'A fake terminal in the style of computer on LOST',
+      description: 'A fake terminal in the style of the computer on LOST',
       url: 'http://www.ccs.neu.edu/home/812chuc/chartreuse-emu/',
       imageUrl: '',
-      stack: [JAVASCRIPT]
+      stack: [JQUERY]
+    }, {
+      title: 'Stdashboard',
+      description: 'A dashboard for displaying open pull requests in Stash',
+      url: 'https://github.com/master-chu/ember-stash',
+      imageUrl: '',
+      stack: [EMBER, NODE]
+    }, {
+      title: 'Sticky Notes',
+      description: 'A sticky note app leveraging local storage',
+      url: 'https://github.com/master-chu/backbone-sticky-notes',
+      imageUrl: '',
+      stack: [BACKBONE, JQUERY]
     }]
   });
   App.PageGalleryComponent.reopenClass({
@@ -72,9 +86,16 @@ $(function() {
 
   App.PageGalleryItemComponent = Ember.Component.extend({
     tagName: 'a',
-    classNames: ['col-sm-4'],
+    classNames: ['gallery-item'],
     href: Ember.computed.alias('url'),
-    attributeBindings: ['href']
+    attributeBindings: ['href'],
+    formattedStack: Ember.computed('stack', function() {
+      var stack = this.get('stack');
+      var length = stack.length;
+      return stack.reduce(function(previousValue, item, index, enumerable) {
+        return previousValue + ", " + item;
+      });
+    })
   });
   App.PageGalleryItemComponent.reopenClass({
     positionalParams: ['title', 'description', 'url', 'imageUrl', 'stack']

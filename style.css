@@ -65,6 +65,13 @@ a:hover, a:visited {
   margin: 0 -15px;
 }
 
+.gallery-item {
+  width: 275px;
+  height: 320px;
+  border: 1px solid red;
+  float: left;
+}
+
 #footer, #push-footer {
   height: 45px;
 }

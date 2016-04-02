@@ -1,0 +1,7 @@
+initial size:
+  width: 800
+  height: 600
+
+thumbnail size:
+  width: 250
+  height: proportional

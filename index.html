@@ -70,25 +70,18 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="components/page-gallery">
-      <div class="row">
-        <h3> {{title}} </h3>
-        {{#each galleryItems as |item|}}
-          {{page-gallery-item item.title item.description item.url item.imageUrl item.stack}}
-        {{/each}}
-      </div>
+      <h3> {{title}} </h3>
+      {{#each galleryItems as |item|}}
+        {{page-gallery-item item.title item.description item.url item.imageUrl item.stack}}
+      {{/each}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="components/page-gallery-item">
       <h4> {{title}} </h4>
-      <div>
-        {{description}}
-      </div>
+      <div> {{description}} </div>
       <img src="{{imageUrl}}" />
       <div>
-        <label>Stack: </label>
-        {{#each stack as |technology|}}
-          {{technology}},
-        {{/each}}
+        <label>Stack: </label> {{formattedStack}}
       </div>
     </script>
 
