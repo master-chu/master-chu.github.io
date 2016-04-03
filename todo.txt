@@ -1,4 +1,4 @@
-[ ] Upload and embed the menu pdf
+[√] Upload and embed the menu pdf
 [ ] Upload more thumbnails
 [ ] Build blog
 [ ] Get contact email sorted out
