@@ -14,7 +14,7 @@ body {
   color: white;
 }
 
-h1, h2, h3, .navbar-link {
+h1, h2, h3, h4, .navbar-link {
   font-family: "Lato";
 }
 
@@ -23,30 +23,19 @@ h1 {
   margin: 35px 0;
 }
 
-/* tablets/desktops and up ----------- */
 @media (min-width: 769px) and (max-width: 1199px) {
   h1 {
     font-size: 90px !important;
   }
 }
-
 @media (min-width: 1200px) {
   h1 {
     font-size: 110px !important;
   }
 }
 
-h1 a:hover {
-  color: white !important;
-}
-
-a {
-  display: block;
-}
-
-a:hover, a:visited {
-  text-decoration: none;
-  color: white;
+hr {
+  border-color: #8A8A8A;
 }
 
 .navbar-link {
@@ -55,23 +44,73 @@ a:hover, a:visited {
   margin: 0;
 }
 
+.navbar-link a {
+  display: block;
+  padding: 10px 0;
+  margin: 0 -15px;
+}
+
 .navbar-link a:hover {
   background-color: #8A8A8A;
   color: white !important;
 }
 
-.navbar-link a {
-  padding: 10px 0;
-  margin: 0 -15px;
+.navbar-link a:hover, .navbar-link a:visited, h1 a:hover, h1 a:visited,
+.page a.gallery-item, a.gallery-item:hover {
+  text-decoration: none;
+  color: white;
 }
+
+
+.page a {
+  color: #FFCC00;
+}
+
+.page {
+  font-size: 16px;
+  padding-right: 50px;
+}
+
 
 .gallery-item {
+  // border: 1px solid red;
   width: 275px;
-  height: 320px;
-  border: 1px solid red;
+  height: 325px;
+  padding: 0 10px;
+  padding-bottom: 10px;
   float: left;
+  font-size: 14px;
 }
 
-#footer, #push-footer {
-  height: 45px;
+.gallery-item .description {
+  height: 50px;
+}
+
+.gallery-item img {
+  min-height: 190px;
+}
+
+.gallery-item .stack {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+a.gallery-item:hover {
+  background-color: #8A8A8A;
+}
+
+.youtube-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.youtube-container iframe,
+.youtube-container object,
+.youtube-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

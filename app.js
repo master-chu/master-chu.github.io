@@ -6,7 +6,7 @@ $(function() {
     this.route('web-dev');
     this.route('music');
     this.route('menu');
-    this.route('about');
+    this.route('blog');
     this.route('contact');
   });
 
@@ -30,10 +30,10 @@ $(function() {
   });
 
   App.PageHeaderComponent = Ember.Component.extend({
-    tagName: 'h2'
+    colorClass: 'white'
   });
   App.PageHeaderComponent.reopenClass({
-    positionalParams: ['pageName']
+    positionalParams: ['pageName', 'colorClass']
   });
 
   var ANGULAR = 'Angular';
@@ -44,16 +44,18 @@ $(function() {
   var NODE = 'Node';
   var EMBER = 'Ember';
   var BACKBONE = 'Backbone';
+  var PYTHON = 'Python';
+  var FIREBASE = 'Firebase';
 
   App.PageGalleryComponent = Ember.Component.extend({
     tagName: 'div',
-    classNames: ['container'],
+    // classNames: ['container'],
     galleryItems: [{
       title: 'Jake and Amir Scripts',
       description: 'The official searchable script archive of popular web series Jake and Amir',
       url: 'http://scripts.jakeandamir.com',
       imageUrl: 'images/janda.jpg',
-      stack: [JQUERY, PHP, MYSQL]
+      stack: [JQUERY, PHP, MYSQL, PYTHON]
     }, {
       title: 'Nutraction',
       description: 'A school project for tracking nutritional information',
@@ -78,6 +80,12 @@ $(function() {
       url: 'https://github.com/master-chu/backbone-sticky-notes',
       imageUrl: '',
       stack: [BACKBONE, JQUERY]
+    }, {
+      title: 'This site',
+      description: 'You\'re looking at it',
+      url: 'http://master-chu.github.io',
+      imageUrl: '',
+      stack: [EMBER]
     }]
   });
   App.PageGalleryComponent.reopenClass({

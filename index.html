@@ -20,7 +20,7 @@
   </head>
   <body>
     <script type="text/x-handlebars" data-template-name="application">
-      <div class="container" style="border:solid 1px red;">
+      <div class="container">
         {{site-header}}
         {{site-navbar}}
         {{outlet}}
@@ -42,7 +42,7 @@
           {{site-navbar-link 'web dev' 'green'}}
           {{site-navbar-link 'music' 'blue'}}
           {{site-navbar-link 'menu' 'cyan'}}
-          {{site-navbar-link 'about' 'yellow'}}
+          {{site-navbar-link 'blog' 'yellow'}}
           {{site-navbar-link 'contact' 'magenta'}}
         </div>
       </nav>
@@ -53,24 +53,45 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="components/page-header">
-      {{pageName}}
+      <h2 class="{{colorClass}}"> {{pageName}} </h2>
+      <hr />
     </script>
 
     <script type="text/x-handlebars" data-template-name="home">
       <div class="container page">
-        {{page-header 'Welcome'}}
+        {{page-header 'Hi' 'red'}}
+        <h3> About Me </h3>
+        <p>
+          I'm a web developer with a background in Ruby on Rails and various JavaScript frameworks, most recently Ember.js. I was born and raised in the greater Boston area and graduated from Northeastern University's College of Computer and Information Science in 2015.
+        </p>
+        <p>
+          In my spare time I enjoy playing guitar, running, gymnastics, yoga, drawing, animation, cooking, and Dragon Ball Z.
+        </p>
+
+        <h3> About this site </h3>
+        <p>
+          This page is built using Ember.js and Bootstrap on top of GitHub Pages, so you can take a peek at the <a href="https://github.com/master-chu/master-chu.github.io"> source code</a>.
+        </p>
       </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="web-dev">
       <div class="container page">
-        {{page-header 'Web Dev'}}
+        {{page-header 'Web Dev' 'green'}}
+        <h3> Skills </h3>
+        <p>
+          I am currently an engineer at <a href="http://zipcar.com" class="green">Zipcar</a>, where I primarily work in Ruby on Rails and Ember.js developing REST and JSON-API applications on agile teams. Zipcar places a heavy emphasis on TDD and pair programming. I occasionally perform support work on our legacy system, which uses ACS/TCL and Oracle. Other various tools often employed are git, JIRA, and JMeter.
+        </p>
+        <p>
+          At previous positions, I have used various other technologies including Backbone, RequireJS, Highcharts, Java, Spring, MySQL, various VMware products, Accurev, Perforce, Crazy Egg, and a handful of Linux/Unix operating systems. In my spare time I have dabbled with Elixir + Phoenix Framework, Python, PHP, Angular, Postgres, and various Node libraries.
+        </p>
         {{page-gallery 'Portfolio'}}
       </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="components/page-gallery">
       <h3> {{title}} </h3>
+      <p> Many of these projects are hosted on my public <a class="blue" href="https://github.com/master-chu">GitHub</a> account. </p>
       {{#each galleryItems as |item|}}
         {{page-gallery-item item.title item.description item.url item.imageUrl item.stack}}
       {{/each}}
@@ -78,42 +99,54 @@
 
     <script type="text/x-handlebars" data-template-name="components/page-gallery-item">
       <h4> {{title}} </h4>
-      <div> {{description}} </div>
+      <p class="stack"> <label>Stack: </label> {{formattedStack}} </p>
+      <p class="description"> {{description}} </p>
       <img src="{{imageUrl}}" />
-      <div>
-        <label>Stack: </label> {{formattedStack}}
-      </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="music">
       <div class="container page">
-        {{page-header 'Music'}}
+        {{page-header 'Music' 'blue'}}
 
-        Music
+        <div class="row">
+          <div class="col-sm-6">
+            <h3 class="red"> YouTube </h3>
+            <p> I perform video game song covers over on my <a href="https://www.youtube.com/channel/UCxjiUkViNy5j6ZWLDrlBpVA?view_as=public">Youtube channel</a>. I also play the occasional open mic night in the Boston area. </p>
+            <div class="youtube-container">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Z4kRhJBOyJo" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <h3 class="orange"> Soundcloud </h3>
+              <p> My friend Alex Snyder has graciously featured me on some of his songs as well. </p>
+              <iframe width="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/232821357&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+              <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/226199411&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+          </div>
+        </div>
       </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="menu">
       <div class="container page">
-        {{page-header 'Menu'}}
+        {{page-header 'Menu' 'cyan'}}
 
-        menu
+        Coming soon!
       </div>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="about">
+    <script type="text/x-handlebars" data-template-name="blog">
       <div class="container page">
-        {{page-header 'About'}}
+        {{page-header 'Blog' 'yellow'}}
 
-        All about chris
+        Nothing here yet...
       </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="contact">
       <div class="container page">
-        {{page-header 'Contact'}}
+        {{page-header 'Contact' 'magenta'}}
 
-        contact email
+        Please light the bat-signal and I'll meet you on the GCPD rooftop
       </div>
     </script>
   </body>
