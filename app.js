@@ -10,6 +10,22 @@ $(function() {
     this.route('contact');
   });
 
+  App.PostAdapter = DS.FirebaseAdapter.extend({
+    firebase: new Firebase('https://docs-examples.firebaseio.com/web/bindings/ember/blog')
+  });
+
+  App.Post = DS.Model.extend({
+    title: DS.attr('string'),
+    body: DS.attr('string'),
+    timestamp: DS.attr('number')
+  });
+
+  App.BlogRoute = Ember.Route.extend({
+    model: function(params) {
+      this.store.findAll('post');
+    }
+  });
+
   App.SiteNavbarLinkComponent = Ember.Component.extend({
     colorClass: 'white',
     tagName: 'div',
@@ -66,25 +82,25 @@ $(function() {
       title: 'Fake Terminal',
       description: 'A fake terminal in the style of the computer on LOST',
       url: 'http://www.ccs.neu.edu/home/812chuc/chartreuse-emu/',
-      imageUrl: '',
+      imageUrl: 'images/terminal.jpg',
       stack: [JQUERY]
     }, {
       title: 'Stdashboard',
       description: 'A dashboard for displaying open pull requests in Stash',
       url: 'https://github.com/master-chu/ember-stash',
-      imageUrl: '',
+      imageUrl: 'images/stdashboard.jpg',
       stack: [EMBER, NODE]
     }, {
       title: 'Sticky Notes',
       description: 'A sticky note app leveraging local storage',
       url: 'https://github.com/master-chu/backbone-sticky-notes',
-      imageUrl: '',
+      imageUrl: 'images/stickynotes.jpg',
       stack: [BACKBONE, JQUERY]
     }, {
       title: 'This site',
       description: 'You\'re looking at it',
       url: 'http://master-chu.github.io',
-      imageUrl: '',
+      imageUrl: 'images/masterchu.jpg',
       stack: [EMBER]
     }]
   });

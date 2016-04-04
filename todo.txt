@@ -2,3 +2,4 @@
 [ ] Upload more thumbnails
 [ ] Build blog
 [ ] Get contact email sorted out
+[ ] Implement menu in site itself
