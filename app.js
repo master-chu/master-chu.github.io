@@ -6,23 +6,30 @@ $(function() {
     this.route('web-dev');
     this.route('music');
     this.route('menu');
-    this.route('blog');
+    this.route('blog', function() {
+      this.route('post', {path: '/:post_id'});
+    });
     this.route('contact');
   });
 
   App.PostAdapter = DS.FirebaseAdapter.extend({
-    firebase: new Firebase('https://docs-examples.firebaseio.com/web/bindings/ember/blog')
+    firebase: new Firebase('https://master-chu.firebaseio.com/blog')
   });
 
   App.Post = DS.Model.extend({
     title: DS.attr('string'),
-    body: DS.attr('string'),
-    timestamp: DS.attr('number')
+    body: DS.attr('string')
   });
 
   App.BlogRoute = Ember.Route.extend({
     model: function(params) {
-      this.store.findAll('post');
+      return this.store.findAll('post');
+    }
+  });
+
+  App.BlogPostRoute = Ember.Route.extend({
+    model: function(params) {
+      return this.store.findRecord('post', params["post_id"]);
     }
   });
 

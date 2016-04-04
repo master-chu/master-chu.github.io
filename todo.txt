@@ -1,5 +1,6 @@
 [√] Upload and embed the menu pdf
-[ ] Upload more thumbnails
-[ ] Build blog
+[√] Upload more thumbnails
+[√] Build blog
+[ ] Build blog post uploader
 [ ] Get contact email sorted out
 [ ] Implement menu in site itself

@@ -143,10 +143,24 @@
     <script type="text/x-handlebars" data-template-name="blog">
       <div class="container page">
         {{page-header 'Blog' 'yellow'}}
+        {{outlet}}
+      </div>
+    </script>
 
+    <script type="text/x-handlebars" data-template-name="blog/index">
+      <h3> Index </h3>
+      <ul>
         {{#each model as |post|}}
-          {{post.title}}
+          <li>{{#link-to "blog.post" post}} {{post.title}} {{/link-to}}</li>
         {{/each}}
+      </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="blog/post">
+    <span> {{link-to "Go back" "blog"}} </span>
+      <h3> {{model.title}} </h3>
+      <div>
+        {{model.body}}
       </div>
     </script>
 
