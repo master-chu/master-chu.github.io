@@ -108,7 +108,7 @@ $(function() {
       description: 'You\'re looking at it',
       url: 'http://master-chu.github.io',
       imageUrl: 'images/masterchu.jpg',
-      stack: [EMBER]
+      stack: [EMBER, FIREBASE]
     }]
   });
   App.PageGalleryComponent.reopenClass({
